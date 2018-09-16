@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: Web/Dockerfile
+
+  olb.webapi:
+    image: ${DOCKER_REGISTRY}olbwebapi
+    build:
+      context: .
+      dockerfile: OLB.WebAPI/Dockerfile
+
