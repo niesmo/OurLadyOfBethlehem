@@ -10,6 +10,16 @@ namespace OLB.DataAccess
 
         public DbSet<Application>   Applications { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Parent> Parents { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<StudentParent>()
+                .HasKey(sp => new { sp.StudentId, sp.ParentId });
+            base.OnModelCreating(modelBuilder);
+        }
+        
 
     }
 }
