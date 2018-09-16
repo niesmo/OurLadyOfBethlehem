@@ -17,6 +17,7 @@ namespace OLB.DataAccess
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<ParentApplication> ParentApplications { get; set; }
         public DbSet<StudentParent> StudentParents { get; set; }
+        public DbSet<ActionItem> ActionItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,10 +28,13 @@ namespace OLB.DataAccess
             modelBuilder.Entity<ParentApplication>().HasKey(pa => new { pa.ParentId, pa.ApplicationId });
 
             // Store enums as string in the db
-            modelBuilder.Entity<ApplicationRequest>().Property(e => e.ApplicationRequestStatus).HasConversion(new EnumToStringConverter<ApplicationRequest.Status>());
-            modelBuilder.Entity<Classroom>().Property(e => e.AgeGroup).HasConversion(new EnumToStringConverter<AgeGroup>());
-            modelBuilder.Entity<Enrollment>().Property(e => e.Day).HasConversion(new EnumToStringConverter<Day>());
-            modelBuilder.Entity<Enrollment>().Property(e => e.EnrollmentStatus).HasConversion(new EnumToStringConverter<Enrollment.Status>());
+            modelBuilder.Entity<ApplicationRequest>().Property(e => e.ApplicationRequestStatus).HasConversion<string>();
+            modelBuilder.Entity<Classroom>().Property(e => e.AgeGroup).HasConversion<string>();
+            modelBuilder.Entity<Enrollment>().Property(e => e.Day).HasConversion<string>();
+            modelBuilder.Entity<Enrollment>().Property(e => e.EnrollmentStatus).HasConversion<string>();
+            modelBuilder.Entity<ActionItem>().Property(e => e.ActionItemStatus).HasConversion<string>();
+            modelBuilder.Entity<ActionItem>().Property(e => e.AgeGroup).HasConversion<string>();
+            modelBuilder.Entity<ActionItem>().Property(e => e.ActionItemUrgency).HasConversion<string>();
 
 
             base.OnModelCreating(modelBuilder);
