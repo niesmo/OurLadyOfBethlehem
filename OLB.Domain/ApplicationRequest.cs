@@ -2,9 +2,9 @@
 
 namespace OLB.Domain
 {
-    public class Application
+    public class ApplicationRequest
     {
-        public Guid ApplicationId { get; set; }
+        public Guid ApplicationRequestId { get; set; }
         public DateTimeOffset SubmissionDate { get; set; }
         public DateTimeOffset ExpirationDate { get; set; }
         public DateTimeOffset SentAtDate { get; set; }

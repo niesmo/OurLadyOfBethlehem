@@ -8,7 +8,7 @@ namespace OLB.DataAccess
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
-        public DbSet<Application>   Applications { get; set; }
+        public DbSet<ApplicationRequest>   Applications { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Parent> Parents { get; set; }
