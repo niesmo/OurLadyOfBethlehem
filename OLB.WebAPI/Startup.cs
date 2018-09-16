@@ -36,6 +36,7 @@ namespace OLB.WebAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "OurLadyOfBethlehem", Version = "v1" });
+                c.DescribeAllEnumsAsStrings();
             });
         }
 

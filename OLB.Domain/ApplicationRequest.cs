@@ -11,20 +11,19 @@ namespace OLB.Domain
         public Guid SentById { get; set; }
         public string SentToEmailAddress { get; set; }
         public Guid Token { get; set; }
-        public ApplicationType ApplicationType { get; set; }
-        public Status Status { get; set; }
+        public ApplicationRequestType ApplicationRequestType { get; set; }
+        public Status ApplicationRequestStatus { get; set; }
+        
+        public enum Status
+        {
+            Sent,
+            Expired,
+            SubmittedApplication
+        }
     }
 
-    public enum Status
-    {
-        Sent,
-        Expired,
-        Submitted,
-        Approved,
-        Completed
-    }
 
-    public enum ApplicationType
+    public enum ApplicationRequestType
     {
         Staff,
         Existing,

@@ -8,13 +8,13 @@ namespace OLB.Domain
     {
         public Guid ClassroomId { get; set; }
         public string Name { get; set; }
-        public ClassroomGrade Grade { get; set; }
+        public AgeGroup AgeGroup { get; set; }
         public int Capacity { get; set; }
     }
 
-    public enum ClassroomGrade
+    public enum AgeGroup
     {
-        Infint,
+        Infant,
         Toddler
     }
 }

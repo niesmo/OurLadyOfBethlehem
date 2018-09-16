@@ -16,5 +16,6 @@ namespace OLB.Domain
         public DateTime DueDate { get; set; }
         public string ImageUrl { get; set; }
         public List<StudentParent> StudentParents { get; set; }
+        public Guid ApplicationId { get; set; }
     }
 }
